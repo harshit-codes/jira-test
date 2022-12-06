@@ -1,0 +1,13 @@
+image:
+  name: node:18
+pipelines:
+  default:
+    - step:
+        name: Check Code linting
+        script:
+          - npm install
+          - npm install --global @forge/cli
+          - forge settings set usage-analytics true
+          - forge lint
+        caches:
+          - node
